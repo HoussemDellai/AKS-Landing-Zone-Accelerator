@@ -32,5 +32,21 @@ module "networkLZ" {
   snetAksAddr          = var.snetAksAddr
   snetAppGWAddr        = var.snetAppGWAddr
 
+  deployingAllInOne = true
+  vnetHubId         = module.networkHub.vnetHubId
+  firewallPrivateIp = module.networkHub.firewallPrivateIp
+
   # depends_on = [module.networkHub]
 }
+
+# module "aksSupporting" {
+#   source = "../05-AKS-Supporting/"
+
+#   location = var.location
+#   rgLzName    = var.rgLzName
+#   vnetLzName  = var.vnetLzName
+#   rgHubName   = var.rgHubName
+#   vnetHubName = var.vnetHubName
+#   acrName     = var.acrName
+#   akvName     = var.akvName
+# }

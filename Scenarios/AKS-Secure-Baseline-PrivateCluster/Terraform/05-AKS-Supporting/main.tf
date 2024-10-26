@@ -9,9 +9,9 @@ locals {
 
 data "azurerm_client_config" "tenant" {}
 
-data "azurerm_resource_group" "rg" {
-  name = var.rgLzName
-}
+# data "azurerm_resource_group" "rg" {
+#   name = var.rgLzName
+# }
 
 data "azurerm_virtual_network" "vnet-lz" {
   name                = var.vnetLzName
@@ -44,8 +44,8 @@ module "avm-res-containerregistry-registry" {
   source                        = "Azure/avm-res-containerregistry-registry/azurerm"
   version                       = "0.3.1"
   name                          = var.acrName
-  location                      = data.azurerm_resource_group.rg.location
-  resource_group_name           = data.azurerm_resource_group.rg.name
+  location                      = var.location # data.azurerm_resource_group.rg.location
+  resource_group_name           = var.rgLzName # data.azurerm_resource_group.rg.name
   public_network_access_enabled = false
   network_rule_bypass_option    = "AzureServices"
 
@@ -61,8 +61,8 @@ module "avm-res-keyvault-vault" {
   source                        = "Azure/avm-res-keyvault-vault/azurerm"
   version                       = "0.9.1"
   name                          = var.akvName
-  location                      = data.azurerm_resource_group.rg.location
-  resource_group_name           = data.azurerm_resource_group.rg.name
+  location                      = var.location # data.azurerm_resource_group.rg.location
+  resource_group_name           = var.rgLzName # data.azurerm_resource_group.rg.name
   tenant_id                     = data.azurerm_client_config.tenant.tenant_id
   public_network_access_enabled = false
   private_endpoints = {

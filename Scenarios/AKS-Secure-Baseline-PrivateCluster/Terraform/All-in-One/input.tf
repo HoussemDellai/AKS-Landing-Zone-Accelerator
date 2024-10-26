@@ -101,3 +101,13 @@ variable "snetAppGWAddr" {
   type    = string
   default = "10.1.2.0/27"
 }
+
+variable "acrName" {
+  type    = string
+  default = "acrlzti5y24"
+}
+
+variable "akvName" {
+  type    = string
+  default = "akvlzti5y24"
+}

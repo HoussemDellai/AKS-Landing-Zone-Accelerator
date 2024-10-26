@@ -18,6 +18,23 @@ variable "vnetHubName" {
   default = "vnet-hub"
 }
 
+variable "vnetHubId" {
+  type        = string
+  default     = ""
+  description = "Should be value from output of 03-Network-Hub. Used only when deploying All-in-One scenario."
+}
+
+variable "firewallPrivateIp" {
+  type        = string
+  default     = ""
+  description = "Should be value from output of 03-Network-Hub. Used only when deploying All-in-One scenario."
+}
+
+variable "deployingAllInOne" {
+  type    = bool
+  default = false
+}
+
 variable "vnetLzName" {
   type    = string
   default = "vnet-lz"

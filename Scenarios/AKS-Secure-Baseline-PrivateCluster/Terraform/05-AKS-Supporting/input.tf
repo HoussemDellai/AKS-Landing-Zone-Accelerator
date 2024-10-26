@@ -1,3 +1,8 @@
+variable "location" {
+  type    = string
+  default = "eastus"
+}
+
 variable "rgLzName" {
   type    = string
   default = "AksTerra-AVM-LZ-RG"
@@ -7,6 +12,7 @@ variable "vnetLzName" {
   type    = string
   default = "vnet-lz"
 }
+
 variable "rgHubName" {
   type    = string
   default = "AksTerra-AVM-Hub-RG"
@@ -25,5 +31,4 @@ variable "acrName" {
 variable "akvName" {
   type    = string
   default = "akvlzti5y24"
-
 }

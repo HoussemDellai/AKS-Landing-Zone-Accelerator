@@ -1,3 +1,4 @@
+location  = "swedencentral"
 acrName   = "acrlzti5y25"
 akvName   = "akvlzti5y24"
 rgHubName = "rg-hub"
