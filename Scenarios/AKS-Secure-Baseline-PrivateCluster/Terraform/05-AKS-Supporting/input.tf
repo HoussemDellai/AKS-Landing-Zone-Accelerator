@@ -32,3 +32,23 @@ variable "akvName" {
   type    = string
   default = "akvlzti5y24"
 }
+
+variable "deployingAllInOne" {
+  type    = bool
+  default = false
+}
+
+variable "speSubnetId" {
+  type = string
+  default = ""
+}
+
+variable "privateDnsZoneAkvId" {
+  type = string
+  default = ""
+}
+
+variable "privateDnsZoneAcrId" {
+  type = string
+  default = ""
+}

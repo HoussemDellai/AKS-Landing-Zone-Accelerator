@@ -79,7 +79,6 @@ module "avm-res-network-virtualnetwork" {
     AzureFirewallSubnet = {
       name             = "AzureFirewallSubnet"
       address_prefixes = [var.snetFirewallAddr]
-
     }
     AzureBastionSubnet = {
       name             = "AzureBastionSubnet"

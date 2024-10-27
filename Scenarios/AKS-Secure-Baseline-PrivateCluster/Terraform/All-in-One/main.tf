@@ -16,37 +16,42 @@ module "networkHub" {
   rtHubName          = var.rtHubName
 }
 
-module "networkLZ" {
-  source = "../04-Network-LZ/"
+# module "networkLZ" {
+#   source = "../04-Network-LZ/"
 
-  location             = var.location
-  rgLzName             = var.rgLzName
-  rgHubName            = module.networkHub.rgHubName   # var.rgHubName
-  vnetHubName          = module.networkHub.vnetHubName # var.vnetHubName
-  vnetLzName           = var.vnetLzName
-  rtLzName             = var.rtLzName
-  nsgLzDefaultName     = var.nsgLzDefaultName
-  nsgAppGWName         = var.nsgAppGWName
-  spokeVNETaddPrefixes = var.spokeVNETaddPrefixes
-  snetDefaultAddr      = var.snetDefaultAddr
-  snetAksAddr          = var.snetAksAddr
-  snetAppGWAddr        = var.snetAppGWAddr
+#   location             = var.location
+#   rgLzName             = var.rgLzName
+#   rgHubName            = module.networkHub.rgHubName   # var.rgHubName
+#   vnetHubName          = module.networkHub.vnetHubName # var.vnetHubName
+#   vnetLzName           = var.vnetLzName
+#   rtLzName             = var.rtLzName
+#   nsgLzDefaultName     = var.nsgLzDefaultName
+#   nsgAppGWName         = var.nsgAppGWName
+#   spokeVNETaddPrefixes = var.spokeVNETaddPrefixes
+#   snetDefaultAddr      = var.snetDefaultAddr
+#   snetAksAddr          = var.snetAksAddr
+#   snetAppGWAddr        = var.snetAppGWAddr
 
-  deployingAllInOne = true
-  vnetHubId         = module.networkHub.vnetHubId
-  firewallPrivateIp = module.networkHub.firewallPrivateIp
+#   deployingAllInOne = true
+#   vnetHubId         = module.networkHub.vnetHubId
+#   firewallPrivateIp = module.networkHub.firewallPrivateIp
 
-  # depends_on = [module.networkHub]
-}
+#   # depends_on = [module.networkHub]
+# }
 
 # module "aksSupporting" {
 #   source = "../05-AKS-Supporting/"
 
-#   location = var.location
+#   location    = var.location
 #   rgLzName    = var.rgLzName
 #   vnetLzName  = var.vnetLzName
 #   rgHubName   = var.rgHubName
 #   vnetHubName = var.vnetHubName
 #   acrName     = var.acrName
 #   akvName     = var.akvName
+
+#   deployingAllInOne   = true
+#   speSubnetId         = module.networkLZ.speSubnetId
+#   privateDnsZoneAkvId = module.networkLZ.privateDnsZoneAkvId
+#   privateDnsZoneAcrId = module.networkLZ.privateDnsZoneAcrId
 # }
